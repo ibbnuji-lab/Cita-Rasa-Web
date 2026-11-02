@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Citarasa Nusantara - Resep Ayam dan Bebek Khas Indonesia</title>
+  <meta name="description" content="Jelajahi resep ayam dan bebek khas Nusantara, dari Aceh sampai Sulawesi.">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+
+  <!-- Font dari Google Fonts (butuh internet) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Leaflet untuk peta interaktif (butuh internet) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ============ HEADER & NAVIGASI ============ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#beranda" class="brand" aria-label="Citarasa Nusantara, ke beranda">
+        <img src="assets/logo.svg" alt="" class="brand-logo">
+        <span class="brand-text">
+          <span class="brand-name">Citarasa <b>Nusantara</b></span>
+          <small>Ragam rasa, satu Indonesia</small>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Buka menu" aria-expanded="false" aria-controls="mainNav">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" id="mainNav" aria-label="Menu utama">
+        <a href="#beranda" data-page="beranda">Beranda</a>
+        <a href="#jelajah" data-page="jelajah">Jelajah Resep</a>
+        <a href="#peta" data-page="peta">Peta Kuliner</a>
+        <a href="#favorit" data-page="favorit">Resep Favorit <span class="badge" id="favCount" hidden>0</span></a>
+        <a href="#usul" data-page="usul">Usul Resep</a>
+        <a href="#tentang" data-page="tentang">Tentang Kami</a>
+      </nav>
+    </div>
+    <div class="tenun-strip" aria-hidden="true"></div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ BERANDA ============ -->
+    <section class="page" id="page-beranda" data-title="Beranda">
+      <div class="hero">
+        <div class="container hero-inner">
+          <div class="hero-text">
+            <span class="pill">Dapur penuh cerita</span>
+            <h1>Selamat datang di <span class="accent">Citarasa Nusantara!</span></h1>
+            <p>Jelajahi resep ayam dan bebek khas Indonesia, dari gulai Sumatera sampai rica-rica Manado. Pilih satu resep, siapkan bahannya, dan mulai memasak.</p>
+            <div class="hero-actions">
+              <a href="#jelajah" class="btn btn-primary">Jelajahi Resep</a>
+              <button class="btn btn-ghost" id="btnRandom" type="button">Masak Apa Hari Ini?</button>
+            </div>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <div class="hero-plate" id="heroPlate"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="section-head">
+          <h2>Resep Pilihan</h2>
+          <p>Hidangan lezat dari seluruh penjuru Nusantara.</p>
+        </div>
+        <div class="grid" id="featuredGrid"></div>
+        <div class="center-row">
+          <a href="#jelajah" class="btn btn-ghost">Lihat semua resep</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ JELAJAH RESEP ============ -->
+    <section class="page" id="page-jelajah" data-title="Jelajah Resep" hidden>
+      <div class="container">
+        <div class="section-head">
+          <h2>Jelajah Resep</h2>
+          <p>Cari berdasarkan nama, atau saring menurut jenis dan wilayah asal.</p>
+        </div>
+
+        <form class="filter-bar" id="filterBar" role="search" onsubmit="return false">
+          <label class="search-box">
+            <span class="sr-only">Cari nama resep</span>
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="10" cy="10" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15 15l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <input type="search" id="searchInput" placeholder="Cari nama resep..." autocomplete="off">
+          </label>
+
+          <div class="chips" role="group" aria-label="Jenis daging" id="jenisChips">
+            <button type="button" class="chip is-active" data-jenis="semua">Semua</button>
+            <button type="button" class="chip" data-jenis="ayam">Ayam</button>
+            <button type="button" class="chip" data-jenis="bebek">Bebek</button>
+          </div>
+
+          <label class="select-box">
+            <span class="sr-only">Wilayah asal</span>
+            <select id="wilayahSelect"></select>
+          </label>
+
+          <button type="button" class="btn btn-small btn-ghost" id="btnReset">Atur ulang</button>
+        </form>
+
+        <p class="result-info" id="resultInfo" aria-live="polite"></p>
+        <div id="catalog"></div>
+      </div>
+    </section>
+
+    <!-- ============ PETA KULINER ============ -->
+    <section class="page" id="page-peta" data-title="Peta Kuliner" hidden>
+      <div class="container">
+        <div class="section-head">
+          <h2>Peta Kuliner Nusantara</h2>
+          <p>Klik penanda di peta untuk melihat info daerah dan resep ayam atau bebek khasnya.</p>
+        </div>
+
+        <div class="map-layout">
+          <aside class="map-side" aria-label="Daftar daerah">
+            <div class="chips chips-wrap" id="regionChips" role="group" aria-label="Wilayah"></div>
+            <ul class="region-list" id="regionList"></ul>
+          </aside>
+          <div class="map-wrap">
+            <div id="map" role="application" aria-label="Peta interaktif kuliner Nusantara"></div>
+            <p class="map-fallback" id="mapFallback" hidden>Peta belum bisa dimuat. Pastikan perangkatmu terhubung ke internet, lalu muat ulang halaman.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RESEP FAVORIT ============ -->
+    <section class="page" id="page-favorit" data-title="Resep Favorit" hidden>
+      <div class="container">
+        <div class="section-head">
+          <h2>Resep Favorit</h2>
+          <p>Resep yang kamu simpan akan muncul di sini. Tersimpan di browser ini.</p>
+        </div>
+        <div class="grid" id="favGrid"></div>
+        <div class="empty-state" id="favEmpty" hidden>
+          <h3>Belum ada resep favorit</h3>
+          <p>Tekan ikon hati pada resep yang kamu suka untuk menyimpannya.</p>
+          <a href="#jelajah" class="btn btn-primary">Cari resep</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ USUL RESEP ============ -->
+    <section class="page" id="page-usul" data-title="Usul Resep" hidden>
+      <div class="container narrow">
+        <div class="section-head">
+          <h2>Usul Resep</h2>
+          <p>Punya ide resep ayam atau bebek khas daerahmu? Tulis di sini.</p>
+        </div>
+
+        <div class="notice" role="note">
+          <strong>Catatan:</strong> usulanmu dikirim ke pengelola website lewat Google Form, jadi butuh koneksi internet. Isi formulir yang kamu kirim juga disimpan di browser ini sebagai catatan pribadimu.
+        </div>
+
+        <form class="card-form" id="usulForm" novalidate>
+          <div class="field">
+            <label for="usulNama">Nama resep <span class="req">*</span></label>
+            <input id="usulNama" name="nama" type="text" maxlength="80" required placeholder="Contoh: Ayam Betutu">
+            <small class="error" data-for="nama"></small>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="usulJenis">Bahan utama <span class="req">*</span></label>
+              <select id="usulJenis" name="jenis" required>
+                <option value="">Pilih...</option>
+                <option value="ayam">Ayam</option>
+                <option value="bebek">Bebek</option>
+              </select>
+              <small class="error" data-for="jenis"></small>
+            </div>
+            <div class="field">
+              <label for="usulDaerah">Daerah asal <span class="req">*</span></label>
+              <select id="usulDaerah" name="daerah" required>
+                <option value="">Pilih...</option>
+                <option value="Sumatera">Sumatera</option>
+                <option value="Jawa">Jawa</option>
+                <option value="Bali &amp; Nusa Tenggara">Bali &amp; Nusa Tenggara</option>
+                <option value="Kalimantan">Kalimantan</option>
+                <option value="Sulawesi">Sulawesi</option>
+                <option value="Maluku &amp; Papua">Maluku &amp; Papua</option>
+              </select>
+              <small class="error" data-for="daerah"></small>
+            </div>
+          </div>
+          <div class="field">
+            <label for="usulBahan">Bahan-bahan <span class="req">*</span></label>
+            <textarea id="usulBahan" name="bahan" rows="4" required placeholder="Tulis satu bahan per baris"></textarea>
+            <small class="error" data-for="bahan"></small>
+          </div>
+          <div class="field">
+            <label for="usulLangkah">Langkah memasak</label>
+            <textarea id="usulLangkah" name="langkah" rows="4" placeholder="Tulis satu langkah per baris (boleh dikosongkan)"></textarea>
+          </div>
+          <div class="field">
+            <label for="usulPengirim">Namamu</label>
+            <input id="usulPengirim" name="pengirim" type="text" maxlength="40" placeholder="Boleh dikosongkan">
+          </div>
+          <button type="submit" class="btn btn-primary">Kirim Usulan</button>
+          <p class="form-status" id="usulStatus" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="section-head small">
+          <h3>Usulan yang kamu kirim dari browser ini</h3>
+        </div>
+        <ul class="suggest-list" id="suggestList"></ul>
+      </div>
+    </section>
+
+    <!-- ============ TENTANG KAMI ============ -->
+    <section class="page" id="page-tentang" data-title="Tentang Kami" hidden>
+      <div class="container narrow">
+        <div class="section-head">
+          <h2>Tentang Kami</h2>
+        </div>
+        <div class="about-card">
+          <p>Citarasa Nusantara adalah ruang kecil untuk menjelajahi kekayaan kuliner Indonesia lewat satu bahan yang dekat dengan dapur kita: ayam dan bebek.</p>
+          <p>Dari ayam tangkap Aceh sampai ayam rica-rica Manado, setiap resep dikelompokkan menurut daerah asalnya. Dengan begitu kamu bisa ikut melihat bagaimana bumbu, rempah, dan cara memasak berubah dari satu pulau ke pulau lain.</p>
+          <h3>Yang bisa kamu lakukan di sini</h3>
+          <ul>
+            <li>Mencari dan menyaring resep menurut nama, jenis, dan wilayah.</li>
+            <li>Menjelajahi peta untuk menemukan hidangan khas tiap daerah.</li>
+            <li>Menyimpan resep favorit dan mencentang bahan yang sudah siap.</li>
+            <li>Mengusulkan resep dari daerahmu sendiri.</li>
+          </ul>
+          <h3>Tentang data</h3>
+          <p>Pilihan maskot, resep favorit, dan centang bahanmu hanya tersimpan di browser perangkat ini (localStorage). Tidak ada akun. Satu-satunya data yang dikirim keluar adalah usulan resep yang kamu isi sendiri lewat menu Usul Resep, dan itu dikirim ke Google Form pengelola. Takaran pada resep adalah perkiraan, silakan sesuaikan dengan seleramu.</p>
+          <h3>Ganti teman dapurmu</h3>
+          <p>Tomo, Caca, dan Cili siap menemani. <button class="link-btn" type="button" data-action="open-picker">Pilih atau ganti maskot</button></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="tenun-strip" aria-hidden="true"></div>
+    <div class="container footer-inner">
+      <p><strong>Citarasa Nusantara</strong> &middot; Ragam rasa, satu Indonesia</p>
+      <button class="link-btn light" type="button" data-action="open-picker">Ganti maskot</button>
+    </div>
+  </footer>
+
+  <!-- ============ MASKOT MELAYANG ============ -->
+  <div class="mascot-float" id="mascotFloat" hidden>
+    <div class="mascot-bubble" id="mascotBubble" role="status" aria-live="polite" hidden>
+      <p id="mascotText"></p>
+      <button type="button" class="link-btn" data-action="open-picker">Ganti maskot</button>
+    </div>
+    <button type="button" class="mascot-btn" id="mascotBtn" aria-label="Ajak maskot bicara">
+      <img id="mascotImg" src="" alt="">
+    </button>
+  </div>
+
+  <!-- ============ MODAL PILIH MASKOT ============ -->
+  <div class="modal" id="pickerModal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-box picker-box" role="dialog" aria-modal="true" aria-labelledby="pickerTitle">
+      <button class="modal-close" type="button" data-close aria-label="Tutup">&times;</button>
+      <h2 id="pickerTitle">Pilih Teman Dapur Kamu!</h2>
+      <p class="picker-sub">Yuk, pilih maskot yang akan menemani perjalanan kulinermu di Citarasa Nusantara!</p>
+      <div class="picker-grid" id="pickerGrid"></div>
+    </div>
+  </div>
+
+  <!-- ============ MODAL DETAIL RESEP ============ -->
+  <div class="modal" id="recipeModal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-box recipe-box" role="dialog" aria-modal="true" aria-labelledby="recipeTitle">
+      <button class="modal-close" type="button" data-close aria-label="Tutup">&times;</button>
+      <div class="recipe-media" id="recipeMedia"></div>
+      <div class="recipe-body">
+        <div class="recipe-head">
+          <div>
+            <h2 id="recipeTitle"></h2>
+            <p class="recipe-origin" id="recipeOrigin"></p>
+          </div>
+          <button class="fav-btn big" type="button" id="recipeFav" aria-pressed="false"></button>
+        </div>
+        <p class="recipe-summary" id="recipeSummary"></p>
+        <p class="recipe-meta" id="recipeMeta"></p>
+
+        <h3>Bahan-bahan</h3>
+        <p class="hint">Centang bahan yang sudah kamu siapkan. <span id="checkProgress"></span></p>
+        <ul class="ingredients" id="recipeIngredients"></ul>
+        <button class="link-btn" type="button" id="btnClearChecks">Hapus semua centang</button>
+
+        <h3>Langkah memasak</h3>
+        <ol class="steps" id="recipeSteps"></ol>
+
+        <div class="recipe-sources" id="recipeSources" hidden>
+          <h3>Referensi resep</h3>
+          <p class="hint">Versi lain dari para pembuat resep (sebagian besar di Cookpad) dan sumber budaya. Tautan ini membuka situs lain di tab baru.</p>
+          <ul class="source-list" id="recipeSourceList"></ul>
+        </div>
+
+        <div class="recipe-actions" id="recipeActions" hidden>
+          <button class="btn btn-ghost" type="button" id="btnRandomAgain">Acak lagi</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Leaflet (peta) -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <!-- Urutan penting: app.js dulu, baru yang lain -->
+  <script src="js/app.js"></script>
+  <script src="js/mascot.js"></script>
+  <script src="js/peta.js"></script>
+  <script src="js/usul.js"></script>
+  <script src="js/start.js"></script>
+</body>
+</html>

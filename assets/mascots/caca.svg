@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 305" role="img" aria-label="Caca si wortel">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0.6" y2="1">
+      <stop offset="0" stop-color="#ffae45"/>
+      <stop offset="1" stop-color="#ef7316"/>
+    </linearGradient>
+    <linearGradient id="d" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7a9a42"/>
+      <stop offset="1" stop-color="#4c7a2c"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="120" cy="298" rx="62" ry="6" fill="#3b1f12" opacity=".14"/>
+
+  <g id="kaki"><ellipse cx="108" cy="296" rx="12" ry="5" fill="#5b3720"/><ellipse cx="134" cy="296" rx="12" ry="5" fill="#5b3720"/></g>
+  <g id="daun" fill="url(#d)">
+    <ellipse cx="82" cy="72" rx="9" ry="34" transform="rotate(-42 82 72)"/>
+    <ellipse cx="98" cy="58" rx="9" ry="36" transform="rotate(-18 98 58)"/>
+    <ellipse cx="120" cy="52" rx="9" ry="36"/>
+    <ellipse cx="142" cy="58" rx="9" ry="36" transform="rotate(18 142 58)"/>
+    <ellipse cx="158" cy="72" rx="9" ry="34" transform="rotate(42 158 72)"/>
+  </g>
+  <g id="lengan-kiri">
+    <path d="M62 214 Q38 212 36 192" stroke="#f5851e" stroke-width="15" fill="none" stroke-linecap="round"/>
+    <circle cx="36" cy="188" r="10.5" fill="#f5851e"/>
+    <path d="M22 150 L34 190" stroke="#b9783f" stroke-width="7" stroke-linecap="round"/>
+    <path d="M12 118 L36 122 L32 152 L16 148Z" fill="#d9a25c" stroke="#a86a30" stroke-width="2.4" stroke-linejoin="round"/>
+    <path d="M17 126 H32 M17 134 H31 M18 142 H30" stroke="#a86a30" stroke-width="2"/>
+    <circle cx="36" cy="188" r="10.5" fill="#f5851e"/>
+  </g>
+  <path id="badan" d="M66 150 Q120 116 174 150 Q192 206 156 256 Q134 292 120 296 Q106 292 84 256 Q48 206 66 150Z" fill="url(#g)"/>
+  <g stroke="#d9690f" stroke-width="3" stroke-linecap="round" fill="none" opacity=".55">
+    <path d="M70 188 q10 4 18 0"/><path d="M158 176 q10 4 18 0"/><path d="M150 232 q-8 4 -16 0"/><path d="M92 246 q8 4 16 0"/>
+  </g>
+  <ellipse cx="86" cy="160" rx="16" ry="8" fill="#fff" opacity=".25" transform="rotate(-24 86 160)"/>
+  <g id="lengan-kanan">
+    <path d="M178 214 Q210 208 210 176" stroke="#f5851e" stroke-width="15" fill="none" stroke-linecap="round"/>
+    <circle cx="210" cy="170" r="11" fill="#f5851e"/>
+    <path d="M202 162 l-3 -9 M210 159 l0 -10 M218 162 l3 -9" stroke="#f5851e" stroke-width="5" stroke-linecap="round"/>
+  </g>
+
+  <g id="topi" transform="translate(0,8)">
+    <circle cx="88" cy="82" r="22" fill="#fffdf7" stroke="#eadcc2" stroke-width="2"/>
+    <circle cx="152" cy="82" r="22" fill="#fffdf7" stroke="#eadcc2" stroke-width="2"/>
+    <circle cx="120" cy="64" r="29" fill="#fffdf7" stroke="#eadcc2" stroke-width="2"/>
+    <rect x="76" y="92" width="88" height="28" rx="11" fill="#fffdf7" stroke="#eadcc2" stroke-width="2"/>
+    <path d="M100 98 V114 M120 98 V114 M140 98 V114" stroke="#eadcc2" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <g id="wajah">
+    <path d="M88 193 Q98 180 108 193" stroke="#3b1f12" stroke-width="4.2" fill="none" stroke-linecap="round"/>
+    <ellipse cx="142" cy="190" rx="8.5" ry="10.5" fill="#3b1f12"/>
+    <circle cx="145.2" cy="185.8" r="3.4" fill="#fff"/>
+    <circle cx="139" cy="194.5" r="1.7" fill="#fff"/>
+    <ellipse cx="83" cy="208" rx="10" ry="6" fill="#ff8a8a" opacity=".55"/>
+    <ellipse cx="157" cy="208" rx="10" ry="6" fill="#ff8a8a" opacity=".55"/>
+    <path d="M106.0 206 Q120.0 230 134.0 206 Q120.0 211 106.0 206Z" fill="#6b1710" stroke="#3b1f12" stroke-width="2" stroke-linejoin="round"/>
+    <ellipse cx="120.0" cy="217" rx="7" ry="4.2" fill="#ff7a7a"/>
+  </g>
+  <g id="syal">
+    <path d="M80 224 Q120 246 160 224 L154 240 Q120 260 86 240Z" fill="#7a4a2e" stroke="#5c3520" stroke-width="1.5" stroke-linejoin="round"/>
+  </g>
+  <g id="celemek">
+    <path d="M98 246 Q120 254 142 246 L140 276 Q120 286 100 276 Z" fill="#fffaf0" stroke="#eadcc2" stroke-width="2.2" stroke-linejoin="round"/>
+    <path d="M111 262 h18 q-1 11 -9 11 q-8 0 -9 -11z" fill="#9b5a36"/>
+    <path d="M116 259 q-2 -4 0 -7 M124 259 q-2 -4 0 -7" stroke="#c9a98a" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  </g>
+</svg>

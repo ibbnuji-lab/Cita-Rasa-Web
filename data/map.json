@@ -1,0 +1,205 @@
+{
+  "wilayah": [
+    {
+      "nama": "Sumatera",
+      "pusat": [
+        -0.5,
+        101.5
+      ],
+      "zoom": 5
+    },
+    {
+      "nama": "Jawa",
+      "pusat": [
+        -7.4,
+        110.5
+      ],
+      "zoom": 7
+    },
+    {
+      "nama": "Bali & Nusa Tenggara",
+      "pusat": [
+        -8.6,
+        116.2
+      ],
+      "zoom": 7
+    },
+    {
+      "nama": "Kalimantan",
+      "pusat": [
+        -1.0,
+        113.5
+      ],
+      "zoom": 6
+    },
+    {
+      "nama": "Sulawesi",
+      "pusat": [
+        -1.5,
+        121.5
+      ],
+      "zoom": 6
+    },
+    {
+      "nama": "Maluku & Papua",
+      "pusat": [
+        -4.0,
+        133.0
+      ],
+      "zoom": 5
+    }
+  ],
+  "titik": [
+    {
+      "provinsi": "Aceh",
+      "wilayah": "Sumatera",
+      "lat": 4.7,
+      "lng": 96.75,
+      "info": "Masakan Aceh kaya rempah dan daun aromatik. Daun kari dan cabai hijau banyak dipakai dalam hidangan ayam.",
+      "resep": [
+        "ayam-tangkap"
+      ]
+    },
+    {
+      "provinsi": "Sumatera Barat",
+      "wilayah": "Sumatera",
+      "lat": -0.74,
+      "lng": 100.8,
+      "info": "Tanah Minangkabau, terkenal dengan masakan Padang yang berbumbu tegas, pedas, dan gurih.",
+      "resep": [
+        "ayam-pop",
+        "itik-lado-mudo"
+      ]
+    },
+    {
+      "provinsi": "DKI Jakarta",
+      "wilayah": "Jawa",
+      "lat": -6.2,
+      "lng": 106.85,
+      "info": "Kuliner Betawi memadukan pengaruh Tionghoa, Arab, dan Eropa, termasuk semur yang manis gurih.",
+      "resep": [
+        "semur-ayam-betawi"
+      ]
+    },
+    {
+      "provinsi": "Jawa Tengah",
+      "wilayah": "Jawa",
+      "lat": -7.15,
+      "lng": 110.14,
+      "info": "Rasa masakan Jawa Tengah cenderung manis dan lembut, dengan hidangan santan dan kuah yang menenangkan.",
+      "resep": [
+        "opor-ayam",
+        "garang-asem-ayam"
+      ]
+    },
+    {
+      "provinsi": "DI Yogyakarta",
+      "wilayah": "Jawa",
+      "lat": -7.8,
+      "lng": 110.37,
+      "info": "Dikenal dengan cita rasa manis gurih. Dari sinilah ayam geprek yang kini populer di seluruh Indonesia berasal.",
+      "resep": [
+        "ayam-goreng-kalasan",
+        "ayam-geprek-sambal-bawang",
+        "ayam-geprek-keju"
+      ]
+    },
+    {
+      "provinsi": "Jawa Timur",
+      "wilayah": "Jawa",
+      "lat": -7.54,
+      "lng": 112.24,
+      "info": "Masakan Jawa Timur lebih berani dan gurih. Dari soto Lamongan sampai bebek goreng Madura.",
+      "resep": [
+        "soto-ayam-lamongan",
+        "ayam-lodho",
+        "bebek-bumbu-hitam-madura"
+      ]
+    },
+    {
+      "provinsi": "Bali",
+      "wilayah": "Bali & Nusa Tenggara",
+      "lat": -8.34,
+      "lng": 115.09,
+      "info": "Kuliner Bali bertumpu pada base genep, campuran rempah segar yang jadi dasar banyak masakan.",
+      "resep": [
+        "ayam-betutu",
+        "bebek-betutu",
+        "ayam-sambal-matah"
+      ]
+    },
+    {
+      "provinsi": "Nusa Tenggara Barat",
+      "wilayah": "Bali & Nusa Tenggara",
+      "lat": -8.6,
+      "lng": 116.1,
+      "info": "Lombok dikenal dengan masakan pedas dan sambal terasi yang menggugah selera.",
+      "resep": [
+        "ayam-taliwang"
+      ]
+    },
+    {
+      "provinsi": "Kalimantan Timur",
+      "wilayah": "Kalimantan",
+      "lat": -0.5,
+      "lng": 117.15,
+      "info": "Kuliner Kalimantan Timur memadukan pengaruh Dayak, Kutai, dan Banjar. Dari Samarinda lahir ayam cincane, ayam santan pedas yang dibakar di atas bara.",
+      "resep": [
+        "ayam-cincane"
+      ]
+    },
+    {
+      "provinsi": "Kalimantan Selatan",
+      "wilayah": "Kalimantan",
+      "lat": -3.09,
+      "lng": 115.28,
+      "info": "Kuliner Banjar kaya rempah hangat seperti kayu manis, cengkeh, dan pala.",
+      "resep": [
+        "ayam-masak-habang",
+        "soto-banjar"
+      ]
+    },
+    {
+      "provinsi": "Sulawesi Utara",
+      "wilayah": "Sulawesi",
+      "lat": 1.49,
+      "lng": 124.84,
+      "info": "Kuliner Manado terkenal pedas dan segar, banyak memakai cabai, jahe, serai, dan kemangi.",
+      "resep": [
+        "ayam-rica-rica",
+        "ayam-woku",
+        "bebek-rica-rica"
+      ]
+    },
+    {
+      "provinsi": "Sulawesi Selatan",
+      "wilayah": "Sulawesi",
+      "lat": -4.0,
+      "lng": 120.0,
+      "info": "Tanah Bugis dan Makassar, dengan masakan yang berani: pedas, asam, dan segar. Dari sinilah bebek palekko (nasu palekko) berasal.",
+      "resep": [
+        "bebek-palekko"
+      ]
+    },
+    {
+      "provinsi": "Maluku",
+      "wilayah": "Maluku & Papua",
+      "lat": -3.2,
+      "lng": 129.0,
+      "info": "Kepulauan rempah yang dulu dicari dunia. Dari sinilah ayam raci cili padi berasal, ayam pedas dengan cabai rawit yang dimasak sampai kuahnya menyusut.",
+      "resep": [
+        "ayam-raci-cili-padi"
+      ]
+    },
+    {
+      "provinsi": "Papua",
+      "wilayah": "Maluku & Papua",
+      "lat": -4.27,
+      "lng": 138.08,
+      "info": "Kuliner Papua bertumpu pada sagu, ikan, dan umbi-umbian. Ayam baboto, ayam berbumbu kenari yang dikukus dalam daun pisang, juga dikenal di sini (sebagian sumber menyebut asalnya dari Ternate).",
+      "resep": [
+        "ayam-baboto"
+      ]
+    }
+  ]
+}

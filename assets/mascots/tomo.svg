@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 305" role="img" aria-label="Tomo si tomat">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0.6" y2="1">
+      <stop offset="0" stop-color="#f2584a"/>
+      <stop offset="1" stop-color="#c52c1f"/>
+    </linearGradient>
+    <linearGradient id="d" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7a9a42"/>
+      <stop offset="1" stop-color="#4c7a2c"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="120" cy="298" rx="62" ry="6" fill="#3b1f12" opacity=".14"/>
+
+  <g id="kaki"><ellipse cx="94" cy="288" rx="17" ry="8" fill="#5b3720"/><ellipse cx="146" cy="288" rx="17" ry="8" fill="#5b3720"/></g>
+  <g id="lengan-kiri">
+    <path d="M30 150 L40 200" stroke="#b9783f" stroke-width="7" stroke-linecap="round"/>
+    <ellipse cx="26" cy="132" rx="13" ry="18" fill="#c98a4b" stroke="#a86a30" stroke-width="2.5" transform="rotate(-12 26 132)"/>
+    <path d="M60 214 Q38 214 38 196" stroke="#d33a28" stroke-width="15" fill="none" stroke-linecap="round"/>
+    <circle cx="38" cy="192" r="10.5" fill="#d33a28"/>
+  </g>
+  <ellipse cx="120" cy="196" rx="78" ry="68" fill="url(#g)"/>
+  <ellipse cx="86" cy="156" rx="20" ry="11" fill="#fff" opacity=".22" transform="rotate(-28 86 156)"/>
+  <g id="kelopak" fill="url(#d)">
+    <ellipse cx="86" cy="134" rx="22" ry="8" transform="rotate(-24 86 134)"/>
+    <ellipse cx="154" cy="134" rx="22" ry="8" transform="rotate(24 154 134)"/>
+    <ellipse cx="104" cy="130" rx="20" ry="7.5" transform="rotate(-8 104 130)"/>
+    <ellipse cx="136" cy="130" rx="20" ry="7.5" transform="rotate(8 136 130)"/>
+  </g>
+  <g id="lengan-kanan">
+    <path d="M186 212 Q216 206 214 174" stroke="#d33a28" stroke-width="15" fill="none" stroke-linecap="round"/>
+    <circle cx="214" cy="168" r="11" fill="#d33a28"/>
+    <path d="M206 160 l-3 -9 M214 157 l0 -10 M222 160 l3 -9" stroke="#d33a28" stroke-width="5" stroke-linecap="round"/>
+  </g>
+
+  <g id="topi" transform="translate(0,8)">
+    <circle cx="88" cy="82" r="22" fill="#fffdf7" stroke="#eadcc2" stroke-width="2"/>
+    <circle cx="152" cy="82" r="22" fill="#fffdf7" stroke="#eadcc2" stroke-width="2"/>
+    <circle cx="120" cy="64" r="29" fill="#fffdf7" stroke="#eadcc2" stroke-width="2"/>
+    <rect x="76" y="92" width="88" height="28" rx="11" fill="#fffdf7" stroke="#eadcc2" stroke-width="2"/>
+    <path d="M100 98 V114 M120 98 V114 M140 98 V114" stroke="#eadcc2" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <g id="wajah">
+    <ellipse cx="94" cy="186" rx="8.5" ry="10.5" fill="#3b1f12"/>
+    <circle cx="97.2" cy="181.8" r="3.4" fill="#fff"/>
+    <circle cx="91" cy="190.5" r="1.7" fill="#fff"/>
+    <path d="M136 189 Q146 176 156 189" stroke="#3b1f12" stroke-width="4.2" fill="none" stroke-linecap="round"/>
+    <ellipse cx="79" cy="204" rx="10" ry="6" fill="#ff8a8a" opacity=".55"/>
+    <ellipse cx="161" cy="204" rx="10" ry="6" fill="#ff8a8a" opacity=".55"/>
+    <path d="M106.0 202 Q120.0 226 134.0 202 Q120.0 207 106.0 202Z" fill="#6b1710" stroke="#3b1f12" stroke-width="2" stroke-linejoin="round"/>
+    <ellipse cx="120.0" cy="213" rx="7" ry="4.2" fill="#ff7a7a"/>
+  </g>
+  <g id="syal">
+    <path d="M84 224 Q120 244 156 224 L152 240 Q120 258 88 240Z" fill="#7a4a2e" stroke="#5c3520" stroke-width="1.5" stroke-linejoin="round"/>
+  </g>
+  <g id="celemek">
+    <path d="M88 246 Q120 258 152 246 L158 284 Q120 300 82 284 Z" fill="#fffaf0" stroke="#eadcc2" stroke-width="2.2" stroke-linejoin="round"/>
+    <path d="M111 266 h18 q-1 11 -9 11 q-8 0 -9 -11z" fill="#9b5a36"/>
+    <path d="M116 263 q-2 -4 0 -7 M124 263 q-2 -4 0 -7" stroke="#c9a98a" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  </g>
+</svg>
