@@ -198,6 +198,7 @@ h1, h2, h3 {
 }
 .hero h1 { font-family: "Amita", var(--font-judul); font-size: clamp(2.2rem, 5.6vw, 3.6rem); font-weight: 700; line-height: 1.2; }
 /* Teks gradasi: warna polos sebagai cadangan kalau browser tidak mendukung */
+.hero h1 { color: #fbf1e0; }
 .hero h1 .sapa, .hero h1 .accent { color: #f7d27a; }
 @supports ((-webkit-background-clip: text) or (background-clip: text)) {
   .hero h1 .sapa {
